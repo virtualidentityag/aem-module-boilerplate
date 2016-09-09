@@ -1,0 +1,14 @@
+bower_components
+node_modules
+dist/*
+dev/*
+npm-debug.log
+/src/resources/css/*main.css
+/.idea
+
+# Ignore the generated HTML files but make sure to include the templates
+/src/*.html
+!/src/_templates/
+src/css/*_main.css
+src/*.module.html
+src/*.preview.html
