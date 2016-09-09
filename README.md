@@ -77,9 +77,10 @@ To develop you own module, take a look at the folder structure of the example ap
 All of the modules HTML markup needs to go into the module.tpl.html file, with the module div element directly as root element.
 It's not allowed to add a head, body or html tag around it.
 
-The module div needs to have an definite id which you use to scope your CSS and Javascript, so no other elements in AEM are getting influenced from your application.
+The module div needs to have an unique id which you use to scope your CSS and Javascript, so no other elements in AEM are getting influenced from your application.
 ```
 <div id="vi-app-module">
 	...
 </div>
 ```
+
