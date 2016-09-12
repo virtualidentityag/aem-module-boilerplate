@@ -84,3 +84,8 @@ The module div needs to have an unique id which you use to scope your CSS and Ja
 </div>
 ```
 
+After you finished developing your own module, you have to add its folder name to the gulp config file modules array and run
+
+```
+gulp build
+```
