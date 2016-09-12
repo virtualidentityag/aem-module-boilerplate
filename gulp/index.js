@@ -35,8 +35,7 @@ gulp.task('build', ['clean:dist'], function(callback) {
       'usemin',
       'copy:css',
       'copy:fonts',
-      'copy:images',
-      'copy:js'
+      'copy:images'
     ],
     callback
   );

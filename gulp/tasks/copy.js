@@ -89,10 +89,6 @@ gulp.task('copy:js:dev', function() {
   return copyRessourcesDev('/js/**', '/js/');
 });
 
-gulp.task('copy:js', function() {
-  return copyRessourcesDist('/js/**', '/js/');
-});
-
 gulp.task('copy:preview', function() {
   return copyRessourcesDev('/_preview/**', '/_preview/');
 });
