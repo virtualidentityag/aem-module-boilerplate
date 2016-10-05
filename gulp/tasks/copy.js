@@ -69,24 +69,20 @@ gulp.task('copy:css', ['sass'], function() {
   return stream;
 });
 
-gulp.task('copy:fonts:dev', function() {
-  return copyRessourcesDev('/fonts/**', '/fonts/');
+gulp.task('copy:assets:dev', function() {
+  return copyRessourcesDev('/assets/**', '/assets/');
 });
 
-gulp.task('copy:fonts', function() {
-  return copyRessourcesDist('/fonts/**', '/fonts/');
-});
-
-gulp.task('copy:images:dev', function() {
-  return copyRessourcesDev('/img/**', '/img/');
-});
-
-gulp.task('copy:images', function() {
-  return copyRessourcesDist('/img/**', '/img/');
+gulp.task('copy:assets', function() {
+  return copyRessourcesDist('/assets/**', '/assets/');
 });
 
 gulp.task('copy:js:dev', function() {
   return copyRessourcesDev('/js/**', '/js/');
+});
+
+gulp.task('copy:js:uncompressed', function() {
+  return copyRessourcesDist('/js/uncompressed/**', '/js/uncompressed/');
 });
 
 gulp.task('copy:preview', function() {

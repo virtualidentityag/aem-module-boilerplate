@@ -16,8 +16,7 @@ gulp.task('build:dev', ['clean:dev'], function(callback) {
     'fileinclude',
     [
       'copy:css:dev',
-      'copy:fonts:dev',
-      'copy:images:dev',
+      'copy:assets:dev',
       'copy:js:dev',
       'copy:preview'
     ],
@@ -34,8 +33,8 @@ gulp.task('build', ['clean:dist'], function(callback) {
     [
       'usemin',
       'copy:css',
-      'copy:fonts',
-      'copy:images'
+      'copy:assets',
+      'copy:js:uncompressed'
     ],
     callback
   );

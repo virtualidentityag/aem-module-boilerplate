@@ -11,7 +11,7 @@ This boilerplate should help to create AEM modules from html, css and js files.
     │   └── index.js
     │
     ├── src                     
-    │   └── vi-app-module       # Module source
+    │   └── example-aem-module  # Module source
     │       ├── _preview
     │       ├── _templates
     │       ├── css
@@ -52,9 +52,9 @@ This will also create a development build so you preview and dist directory are 
 
 
 ##AEM Module Development
-To develop you own module, take a look at the folder structure of the example app "vi-app-module"
+To develop you own module, take a look at the folder structure of the example app "example-aem-module"
 
-    vi-app-module                   # Module source
+    example-aem-module              # Module source
     │
     ├── _preview                    # Resources only used in preview mode
     ├── _templates                  # Template data
@@ -79,7 +79,7 @@ It's not allowed to add a head, body or html tag around it.
 
 The module div needs to have an unique id which you use to scope your CSS and Javascript, so no other elements in AEM are getting influenced from your application.
 ```
-<div id="vi-app-module">
+<div id="example-aem-module">
 	...
 </div>
 ```
