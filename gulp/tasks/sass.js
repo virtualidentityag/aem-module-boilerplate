@@ -19,7 +19,7 @@ gulp.task('sass', function () {
 
   modules.forEach(function(module){
     stream.add(
-      gulp.src(config.srcDir + module + '/css/*.scss')
+      gulp.src(config.srcDir + module + '/css/*_main.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .on('error', notify.onError(function (error) {
