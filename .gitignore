@@ -9,6 +9,6 @@ npm-debug.log
 # Ignore the generated HTML files but make sure to include the templates
 /src/*.html
 !/src/_templates/
-src/css/*_main.css
+src/**/css/*_main.css
 src/*.module.html
 src/*.preview.html
