@@ -9,7 +9,7 @@ module.exports = {
   distDir: './dist',
   templateDir: '/_templates',
   moduleDirs: [
-    '/vi-app-module'
+    '/example-aem-module'
   ],
   languages: [
     'en',
