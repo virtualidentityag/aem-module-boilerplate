@@ -2,8 +2,8 @@
  * Created by marc.wissler on 08.09.16.
  */
 
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
+const gulp = require('gulp');
+const runSequence = require('run-sequence');
 
 // configure default task
 gulp.task('default', ['eslint', 'watch']);
