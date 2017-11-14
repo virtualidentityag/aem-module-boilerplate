@@ -7,6 +7,9 @@ module.exports = {
     srcDir: './src',
     devDir: './dev',
     distDir: './dist',
+
+    autoprefixer: ['last 3 versions', 'ie 9'],
+
     // templateDir: '/_templates',
     // moduleDirs: [
     //     '/example-aem-module'
