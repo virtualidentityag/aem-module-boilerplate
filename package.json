@@ -31,6 +31,7 @@
   },
   "bugs": {},
   "dependencies": {
+    "globule": "^1.2.0",
     "gulp-hb": "^6.0.2",
     "path": "^0.12.7"
   }

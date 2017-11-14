@@ -9,33 +9,36 @@ const runSequence = require('run-sequence');
 gulp.task('default', ['eslint', 'watch']);
 
 
-gulp.task('build:dev', ['clean:dev'], function(callback) {
+gulp.task('build:dev', ['clean:dev'], function (callback) {
 
-  runSequence(
-    'sass',
-    'hb',
-    [
-      'copy:css:dev',
-      'copy:assets:dev',
-      'copy:js:dev',
-      'copy:preview'
-    ],
-    callback
-  );
+    runSequence(
+        [
+            'sass',
+            'hb'
+        ],
+        'copy:resources:dev',
+        'clean:resources:dev',
+        // [
+        //   'copy:assets:dev',
+        //   'copy:js:dev',
+        //   'copy:preview'
+        // ],
+        callback
+    );
 });
 
-gulp.task('build', ['clean:dist'], function(callback) {
+gulp.task('build', ['clean:dist'], function (callback) {
 
-  runSequence(
-    [
-      'build:dev'
-    ],
-    [
-      'usemin',
-      'copy:css',
-      'copy:assets',
-      'copy:js:uncompressed'
-    ],
-    callback
-  );
+    runSequence(
+        [
+            'build:dev'
+        ],
+        [
+            'usemin',
+            'copy:css',
+            'copy:assets',
+            'copy:js:uncompressed'
+        ],
+        callback
+    );
 });

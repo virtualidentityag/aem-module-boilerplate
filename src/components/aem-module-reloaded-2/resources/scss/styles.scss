@@ -1,0 +1,10 @@
+.aem-module-reloaded {
+    background: lightcoral;
+
+    &__headline{
+        color: lime;
+        transform: rotate(45deg);
+    }
+}
+
+@import "imp";
