@@ -1,1 +1,3 @@
-console.log('main.js executed');
+(function() {
+    console.log('main.js executed');
+})();

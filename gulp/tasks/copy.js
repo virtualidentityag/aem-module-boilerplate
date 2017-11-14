@@ -7,7 +7,7 @@ const merge = require('merge-stream');
 const config = require('./../config');
 
 // copy resources folders
-function copyRessourcesDev(baseDir){
+function copyRessourcesDev(baseDir) {
 
     const mergedStream = merge();
     const modulePaths = globule.find([
@@ -72,31 +72,30 @@ function copyRessourcesDev(baseDir){
 // gulp.task('copy:css:dev', ['sass'], function() {
 //   return copyRessourcesDev('/css/*_main.css', '/css/');
 // });
-//
-// gulp.task('copy:css', ['sass'], function() {
-//   var modules = config.moduleDirs;
-//   var languages = config.languages;
-//
-//   var stream = merge();
-//
-//   modules.forEach(function(module){
-//     languages.forEach(function(language){
-//       stream.add(
-//         gulp.src( config.devDir + module + '/' + language + '/css/*_main.css' )
-//           .pipe(minifyCss())
-//           .pipe( gulp.dest( config.distDir + module + '/' + language + '/css/') )
-//       );
-//     });
-//   });
-//
-//   return stream;
-// });
-//
-gulp.task('copy:resources:dev', function() {
-  return copyRessourcesDev(config.devDir);
+
+gulp.task('copy:js', function () {
+    // var modules = config.moduleDirs;
+    // var languages = config.languages;
+    //
+    // var stream = merge();
+    //
+    // modules.forEach(function(module){
+    //   languages.forEach(function(language){
+    //     stream.add(
+    return gulp.src(config.srcDir + '/components/*/resources/js/**/*.js')
+        .pipe(gulp.dest(config.devDir));
+    //     );
+    //   });
+    // });
+    //
+    // return stream;
 });
 
-gulp.task('copy:resources:dist', function() {
+gulp.task('copy:resources:dev', function () {
+    return copyRessourcesDev(config.devDir);
+});
+
+gulp.task('copy:resources:dist', function () {
     return copyRessourcesDev(config.distDir);
 });
 

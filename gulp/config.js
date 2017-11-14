@@ -23,7 +23,11 @@ module.exports = {
             subStr: '[./',
             newSubStr: '[./application_root/../'
         }
-    ]
+    ],
+
+    uglify: {
+        ignoreList: [ '/module-name/resources/js/file-to-ignore.js' ]
+    }
 
     // templateDir: '/_templates',
     // moduleDirs: [

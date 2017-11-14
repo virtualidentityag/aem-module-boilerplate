@@ -12,7 +12,8 @@ gulp.task('serve', function (callback) {
         'clean:dev',
         [
             'sass',
-            'hb'
+            'hb',
+            'copy:js'
         ],
         'image:resources:dev',
         'copy:resources:dev',
@@ -33,6 +34,7 @@ gulp.task('build', function (callback) {
         [
             'sass:dist',
             'hb:dist',
+            'uglify:resources:dist'
         ],
         'copy:resources:dist',
         'clean:resources:dist',
