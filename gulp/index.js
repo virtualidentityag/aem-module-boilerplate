@@ -6,13 +6,15 @@ const runSequence = require('run-sequence');
 gulp.task('default', ['eslint', 'watch']);
 
 
-gulp.task('build:dev', ['clean:dev'], function (callback) {
+gulp.task('serve', function (callback) {
 
     runSequence(
+        'clean:dev',
         [
             'sass',
             'hb'
         ],
+        'image:resources:dev',
         'copy:resources:dev',
         'clean:resources:dev',
         // [
@@ -24,9 +26,10 @@ gulp.task('build:dev', ['clean:dev'], function (callback) {
     );
 });
 
-gulp.task('build', ['clean:dist'], function (callback) {
+gulp.task('build', function (callback) {
 
     runSequence(
+        'clean:dist',
         [
             'sass:dist',
             'hb:dist',

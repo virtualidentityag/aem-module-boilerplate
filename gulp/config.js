@@ -10,6 +10,10 @@ module.exports = {
 
     autoprefixer: ['last 3 versions', 'ie 9'],
 
+    image: {
+        verbose: true
+    },
+
     replaceStrings: [
         {
             subStr: '"./',
