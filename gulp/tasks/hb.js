@@ -45,7 +45,7 @@ gulp.task('hb', function () {
 	// 	hbsData
 	// );
 
-    let hbStream = hb({ debug: true })
+    let hbStream = hb({ debug: false })
         .partials(path.join(cwd, 'src/layouts/*.hbs'))
         .partials(path.join(cwd, 'src/components/*/partials/**/*.hbs'));
 
@@ -75,9 +75,65 @@ gulp.task('hb', function () {
 		.pipe(rename({extname: ".html"}))
         .pipe(rename((path) => {
             path.dirname = path.dirname.replace('/variations', '');
-            console.log(path);
         }))
 		.pipe(gulp.dest(config.devDir));
+
+});
+
+gulp.task('hb:dist', function () {
+
+    //icon data
+    // let iconNames = iconParser.getAllIconFileNamesLowerCase(config.global.src + '/_icons/*.svg');
+    // let preData = {};
+    //
+    // preData[config.global.dataObject] = {
+    // 	'icons': iconNames,
+    // 	'package': packageData
+    // };
+    //
+    // let hbsData = jsonParser.getAllJSONData(config.global.src + '/**/*.json', preData[config.global.dataObject]);
+
+    // let hbStream = hbsParser.createHbsGulpStream(
+    // 	[
+    // 		config.global.src + '/**/*.hbs',
+    // 		'!' + config.global.src + '/pages/**'
+    // 	],
+    // 	hbsData
+    // );
+
+    let hbStream = hb({ debug: false })
+        .partials(path.join(cwd, 'src/layouts/*.hbs'))
+        .partials(path.join(cwd, 'src/components/*/partials/**/*.hbs'))
+        .data({ isProduction: true });
+
+    // .helpers(hbsHelpers);
+
+    // if(dataObject) {
+    //     hbStream.data(dataObject);
+    // }
+    //
+    // if(dataGlob) {
+    //     hbStream.data(dataGlob);
+    // }
+
+    /**
+     * reads from pages
+     * puts files to .tmp
+     */
+    return gulp
+        .src('src/components/*/variations/**/index.hbs')
+        .pipe(hbStream)
+        .on('error', notify.onError(function (error) {
+            return {
+                title: 'hb',
+                message: error.message
+            };
+        }))
+        .pipe(rename({extname: ".html"}))
+        .pipe(rename((path) => {
+            path.dirname = path.dirname.replace('/variations', '');
+        }))
+        .pipe(gulp.dest(config.distDir));
 
 });
 

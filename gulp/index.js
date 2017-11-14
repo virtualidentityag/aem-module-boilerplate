@@ -13,7 +13,7 @@ gulp.task('build:dev', ['clean:dev'], function(callback) {
 
   runSequence(
     'sass',
-    'fileinclude',
+    'hb',
     [
       'copy:css:dev',
       'copy:assets:dev',
