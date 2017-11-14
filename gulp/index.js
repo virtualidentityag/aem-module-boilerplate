@@ -1,6 +1,3 @@
-/**
- * Created by marc.wissler on 08.09.16.
- */
 
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
@@ -31,14 +28,17 @@ gulp.task('build', ['clean:dist'], function (callback) {
 
     runSequence(
         [
-            'build:dev'
+            'sass:dist',
+            'hb:dist',
         ],
-        [
-            'usemin',
-            'copy:css',
-            'copy:assets',
-            'copy:js:uncompressed'
-        ],
+        'copy:resources:dist',
+        'clean:resources:dist',
+        // [
+        //     'usemin',
+        //     'copy:css',
+        //     'copy:assets',
+        //     'copy:js:uncompressed'
+        // ],
         callback
     );
 });

@@ -10,6 +10,17 @@ module.exports = {
 
     autoprefixer: ['last 3 versions', 'ie 9'],
 
+    replaceStrings: [
+        {
+            subStr: '"./',
+            newSubStr: '"./application_root/../'
+        },
+        {
+            subStr: '[./',
+            newSubStr: '[./application_root/../'
+        }
+    ]
+
     // templateDir: '/_templates',
     // moduleDirs: [
     //     '/example-aem-module'
