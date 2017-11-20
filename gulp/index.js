@@ -36,6 +36,9 @@ gulp.task('build:dev', function (callback) {
 gulp.task('serve', function (callback) {
 
     runSequence(
+        [
+            'watch:hb'
+        ],
         'build:dev',
         'connect',
         'livereload:init',
