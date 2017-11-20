@@ -7,7 +7,7 @@ const merge = require('merge-stream');
 const config = require('./../config');
 
 // copy resources folders
-function copyRessourcesDev(baseDir) {
+function moveRessources(baseDir) {
 
     const mergedStream = merge();
     const modulePaths = globule.find([
@@ -50,7 +50,7 @@ function copyRessourcesDev(baseDir) {
 //   return stream;
 // }
 //
-// function copyRessourcesDev(src, dest){
+// function moveRessources(src, dest){
 //   var modules = config.moduleDirs;
 //   var languages = config.languages;
 //
@@ -70,33 +70,20 @@ function copyRessourcesDev(baseDir) {
 //
 //
 // gulp.task('copy:css:dev', ['sass'], function() {
-//   return copyRessourcesDev('/css/*_main.css', '/css/');
+//   return moveRessources('/css/*_main.css', '/css/');
 // });
 
-gulp.task('copy:js', function () {
-    // var modules = config.moduleDirs;
-    // var languages = config.languages;
-    //
-    // var stream = merge();
-    //
-    // modules.forEach(function(module){
-    //   languages.forEach(function(language){
-    //     stream.add(
+gulp.task('copy:js:dev', function () {
     return gulp.src(config.srcDir + '/components/*/resources/js/**/*.js')
         .pipe(gulp.dest(config.devDir));
-    //     );
-    //   });
-    // });
-    //
-    // return stream;
 });
 
 gulp.task('copy:resources:dev', function () {
-    return copyRessourcesDev(config.devDir);
+    return moveRessources(config.devDir);
 });
 
 gulp.task('copy:resources:dist', function () {
-    return copyRessourcesDev(config.distDir);
+    return moveRessources(config.distDir);
 });
 
 // gulp.task('copy:assets', function() {
@@ -104,7 +91,7 @@ gulp.task('copy:resources:dist', function () {
 // });
 //
 // gulp.task('copy:js:dev', function() {
-//   return copyRessourcesDev('/js/**', '/js/');
+//   return moveRessources('/js/**', '/js/');
 // });
 //
 // gulp.task('copy:js:uncompressed', function() {
@@ -112,5 +99,5 @@ gulp.task('copy:resources:dist', function () {
 // });
 //
 // gulp.task('copy:preview', function() {
-//   return copyRessourcesDev('/_preview/**', '/_preview/');
+//   return moveRessources('/_preview/**', '/_preview/');
 // });

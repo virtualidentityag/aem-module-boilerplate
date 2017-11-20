@@ -10,25 +10,25 @@ const imageOptimizers = [
 	image.svgo()
 ];
 
-gulp.task('image:resources:dev', function () {
-
-	// if (config.global.tasks.image) {
-	// 	return mergeStream(config.global.resources.map( function(currentResource) {
-
+function minifyImages(destDir) {
     return gulp.src(config.srcDir + '/components/*/resources/img/**')
         .pipe(image(
             imageOptimizers,
             config.image
         ))
-        .pipe(gulp.dest(config.devDir));
+        .pipe(gulp.dest(destDir));
+}
 
-		// }));
-    //
-	// } else {
-	// 	gutil.log(gutil.colors.yellow('image compressor disabled'));
-	// }
+gulp.task('image:resources:dev', function () {
+    return minifyImages(config.devDir);
 });
-//
+
+gulp.task('image:resources:dist', function () {
+    return minifyImages(config.distDir);
+});
+
+
+
 // gulp.task('image:component:dist', function () {
 //
 // 	if (config.global.tasks.image) {
