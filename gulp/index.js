@@ -2,11 +2,14 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
+require('events').EventEmitter.defaultMaxListeners = 0;
+
+
 // configure default task
 gulp.task('default', ['eslint', 'watch']);
 
 
-gulp.task('serve', function (callback) {
+gulp.task('build:dev', function (callback) {
 
     runSequence(
         'clean:dev',
@@ -16,13 +19,28 @@ gulp.task('serve', function (callback) {
             'copy:js:dev'
         ],
         'image:resources:dev',
-        'copy:resources:dev',
+        [
+            'copy:resources:dev',
+            'copy:layouts:dev'
+        ],
         'clean:resources:dev',
         // [
         //   'copy:assets:dev',
         //   'copy:js:dev',
         //   'copy:preview'
         // ],
+        callback
+    );
+});
+
+gulp.task('serve', function (callback) {
+
+    runSequence(
+        'build:dev',
+        'connect',
+        'livereload:init',
+        'livereload',
+        'connect:open',
         callback
     );
 });

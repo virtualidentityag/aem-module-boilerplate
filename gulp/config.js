@@ -1,17 +1,32 @@
-/**
- * Created by marc.wissler on 08.09.16.
- */
+const src = './src';
+const dev = './dev';
+const dist = './dist';
+const cwd = process.cwd();
+const os = require('os');
+const isWin = /^win/.test(os.platform());
 
 module.exports = {
-    // bowerDir: './bower_components',
-    srcDir: './src',
-    devDir: './dev',
-    distDir: './dist',
+
+    srcDir: src,
+    devDir: dev,
+    distDir: dist,
+    cwd: cwd,
 
     autoprefixer: ['last 3 versions', 'ie 9'],
 
+    connect: {
+        port: 9001,
+        globs: [
+            dev + '/**'
+        ]
+    },
+
     image: {
         verbose: true
+    },
+
+    livereload: {
+        port: 35730
     },
 
     replaceStrings: [
@@ -27,15 +42,9 @@ module.exports = {
 
     uglify: {
         ignoreList: [ '/module-name/resources/js/file-to-ignore.js' ]
-    }
+    },
 
-    // templateDir: '/_templates',
-    // moduleDirs: [
-    //     '/example-aem-module'
-    // ],
-    // languages: [
-    //     'en',
-    //     'de'
-    // ],
-    // watchInterval: 500
+    watch: {
+        usePolling: isWin
+    }
 };

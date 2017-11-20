@@ -30,52 +30,28 @@ function moveRessources(baseDir) {
     return mergedStream;
 }
 
-//
-// // copy misc folders
-// function copyRessourcesDist(src, dest){
-//   var modules = config.moduleDirs;
-//   var languages = config.languages;
-//
-//   var stream = merge();
-//
-//   modules.forEach(function(module){
-//     languages.forEach(function(language){
-//       stream.add(
-//         gulp.src( config.devDir + module + '/' + language + src )
-//           .pipe( gulp.dest( config.distDir + module + '/' + language + dest) )
-//       );
-//     });
-//   });
-//
-//   return stream;
-// }
-//
-// function moveRessources(src, dest){
-//   var modules = config.moduleDirs;
-//   var languages = config.languages;
-//
-//   var stream = merge();
-//
-//   modules.forEach(function(module){
-//     languages.forEach(function(language){
-//       stream.add(
-//         gulp.src( config.srcDir + module + src )
-//           .pipe( gulp.dest( config.devDir + module + '/' + language + dest) )
-//       );
-//     });
-//   });
-//
-//   return stream;
-// }
-//
-//
-// gulp.task('copy:css:dev', ['sass'], function() {
-//   return moveRessources('/css/*_main.css', '/css/');
-// });
-
 gulp.task('copy:js:dev', function () {
     return gulp.src(config.srcDir + '/components/*/resources/js/**/*.js')
         .pipe(gulp.dest(config.devDir));
+});
+
+gulp.task('copy:layouts:dev', function () {
+    const mergedStream = merge();
+    const modulePaths = globule.find([ config.devDir + '/*' ]);
+    const stream = gulp.src(config.srcDir + '/layouts/resources/**');
+
+    modulePaths.forEach((moduleDir) => {
+        globule.find([
+            moduleDir + '/*',
+            '!' + moduleDir + '/resources'
+        ]).forEach((path) => {
+            stream.pipe(gulp.dest(path + '/layouts/resources/'));
+        });
+
+        mergedStream.add(stream)
+    });
+
+    return mergedStream;
 });
 
 gulp.task('copy:resources:dev', function () {
@@ -85,19 +61,3 @@ gulp.task('copy:resources:dev', function () {
 gulp.task('copy:resources:dist', function () {
     return moveRessources(config.distDir);
 });
-
-// gulp.task('copy:assets', function() {
-//   return copyRessourcesDist('/assets/**', '/assets/');
-// });
-//
-// gulp.task('copy:js:dev', function() {
-//   return moveRessources('/js/**', '/js/');
-// });
-//
-// gulp.task('copy:js:uncompressed', function() {
-//   return copyRessourcesDist('/js/uncompressed/**', '/js/uncompressed/');
-// });
-//
-// gulp.task('copy:preview', function() {
-//   return moveRessources('/_preview/**', '/_preview/');
-// });

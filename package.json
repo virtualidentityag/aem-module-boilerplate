@@ -1,30 +1,32 @@
 {
   "name": "aem-module-boilerplate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "devDependencies": {
-    "browser-sync": "^2.10.0",
     "del": "3.0.0",
-    "globule": "^1.2.0",
-    "gulp": "^3.9.0",
+    "globule": "1.2.0",
+    "gulp": "3.9.1",
     "gulp-autoprefixer": "4.0.0",
-    "gulp-cached": "^1.1.0",
-    "gulp-debug": "^2.1.2",
-    "gulp-eslint": "^3.0.1",
-    "gulp-filter": "^4.0.0",
-    "gulp-hb": "^6.0.2",
-    "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.4.0",
-    "gulp-minify-css": "^1.2.2",
-    "gulp-notify": "^3.0.0",
+    "gulp-cached": "1.1.0",
+    "gulp-connect": "5.0.0",
+    "gulp-debug": "3.1.0",
+    "gulp-eslint": "4.0.0",
+    "gulp-filter": "4.0.0",
+    "gulp-hb": "6.0.2",
+    "gulp-if": "2.0.1",
+    "gulp-imagemin": "4.0.0",
+    "gulp-minify-css": "1.2.2",
+    "gulp-notify": "3.0.0",
     "gulp-prettify": "0.5.0",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "1.2.2",
     "gulp-replace": "0.6.1",
     "gulp-sass": "3.1.0",
-    "gulp-size": "^2.1.0",
+    "gulp-size": "2.1.0",
     "gulp-sourcemaps": "2.6.1",
     "gulp-uglify": "3.0.0",
-    "path": "^0.12.7",
+    "gulp-watch": "4.3.11",
+    "opn": "5.1.0",
+    "path": "0.12.7",
     "require-dir": "0.3.2",
     "run-sequence": "2.2.0"
   },
@@ -32,5 +34,8 @@
     "type": "git",
     "url": "https://github.com/virtualidentityag/aem-module-boilerplate"
   },
-  "bugs": {}
+  "bugs": {},
+  "dependencies": {
+    "os": "^0.1.1"
+  }
 }
