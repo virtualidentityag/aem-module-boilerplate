@@ -4,11 +4,6 @@ const runSequence = require('run-sequence');
 
 require('events').EventEmitter.defaultMaxListeners = 0;
 
-
-// configure default task
-gulp.task('default', ['eslint', 'watch']);
-
-
 gulp.task('build:dev', function (callback) {
 
     runSequence(
@@ -18,17 +13,12 @@ gulp.task('build:dev', function (callback) {
             'hb',
             'copy:js:dev'
         ],
-        'image:resources:dev',
+        'image:components:dev',
         [
             'copy:resources:dev',
             'copy:layouts:dev'
         ],
         'clean:resources:dev',
-        // [
-        //   'copy:assets:dev',
-        //   'copy:js:dev',
-        //   'copy:preview'
-        // ],
         callback
     );
 });
@@ -37,7 +27,10 @@ gulp.task('serve', function (callback) {
 
     runSequence(
         [
-            'watch:hb'
+            'watch:hb',
+            'watch:js',
+            'watch:layouts',
+            'watch:image'
         ],
         'build:dev',
         'connect',
@@ -57,15 +50,9 @@ gulp.task('build', function (callback) {
             'hb:dist',
             'uglify:resources:dist'
         ],
-        'image:resources:dist',
+        'image:components:dist',
         'copy:resources:dist',
         'clean:resources:dist',
-        // [
-        //     'usemin',
-        //     'copy:css',
-        //     'copy:assets',
-        //     'copy:js:uncompressed'
-        // ],
         callback
     );
 });

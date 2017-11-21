@@ -19,15 +19,21 @@ function minifyImages(destDir) {
         .pipe(gulp.dest(destDir));
 }
 
-gulp.task('image:resources:dev', function () {
+gulp.task('image:components:dev', function () {
     return minifyImages(config.devDir);
 });
 
-gulp.task('image:resources:dist', function () {
+gulp.task('image:components:dist', function () {
     return minifyImages(config.distDir);
 });
 
-
+gulp.task('watch:image', function () {
+    watch(config.srcDir + '/components/*/resources/img/**', config.watch, function () {
+        runSequence(
+            ['image:components:dev']
+        );
+    });
+});
 
 // gulp.task('image:component:dist', function () {
 //

@@ -7,12 +7,11 @@ const notify = require("gulp-notify");
 const hb = require('gulp-hb');
 const watch = require('gulp-watch');
 const runSequence = require('run-sequence');
-const cwd = process.cwd();
 
 gulp.task('hb', function () {
     const hbStream = hb({ debug: false })
-        .partials(path.join(cwd, 'src/layouts/*.hbs'))
-        .partials(path.join(cwd, 'src/components/*/partials/**/*.hbs'));
+        .partials(path.join(config.cwd, 'src/layouts/*.hbs'))
+        .partials(path.join(config.cwd, 'src/components/*/partials/**/*.hbs'));
 
 	return gulp
 		.src(config.srcDir + '/components/*/variations/**/index.hbs')
@@ -32,8 +31,8 @@ gulp.task('hb', function () {
 
 gulp.task('hb:dist', function () {
     const hbStream = hb({ debug: false })
-        .partials(path.join(cwd, 'src/layouts/*.hbs'))
-        .partials(path.join(cwd, 'src/components/*/partials/**/*.hbs'))
+        .partials(path.join(config.cwd, 'src/layouts/*.hbs'))
+        .partials(path.join(config.cwd, 'src/components/*/partials/**/*.hbs'))
         .data({ isProduction: true });
 
     let stream = gulp
@@ -58,17 +57,15 @@ gulp.task('hb:dist', function () {
 });
 
 gulp.task('watch:hb', function () {
-    let files = [
-        config.srcDir + '/**/*.hbs'
-    ];
-
-    watch(files, config.watch, function () {
+    watch([ config.srcDir + '/**/*.hbs' ], config.watch, function () {
         runSequence(
             ['hb']
         );
     });
 
 });
+
+
 
 // gulp.task('watch:static:hb', function () {
 // 	let files = [config.global.src + '/partials/**/*.hbs'];
