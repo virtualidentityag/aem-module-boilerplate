@@ -1,22 +1,19 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
 const config = require('./../config');
+const sassHelper = require('../lib/sass-helper');
 
-gulp.task('sass', function () {
-    return gulp.src('src/components/*/resources/scss/**/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer(config.autoprefixer))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.devDir));
+gulp.task('sass:dev', function () {
+    sassHelper.sassTask(config.devDir, true);
 });
 
-
 gulp.task('sass:dist', function () {
-    return gulp.src('src/components/*/resources/scss/**/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer(config.autoprefixer))
-        .pipe(gulp.dest(config.distDir));
+    sassHelper.sassTask(config.distDir, false);
+});
+
+gulp.task('watch:sass', function () {
+    watch(config.srcDir + '/components/*/resources/scss/**/*.scss', config.watch, function () {
+        runSequence(
+            ['sass:dev']
+        );
+    });
 });

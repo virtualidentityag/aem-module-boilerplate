@@ -9,15 +9,13 @@ gulp.task('build:dev', function (callback) {
     runSequence(
         'clean:dev',
         [
-            'sass',
+            'sass:dev',
             'hb',
-            'copy:js:dev'
+            'copy:js:dev',
+            'copy:layouts:dev',
+            'image:components:dev'
         ],
-        'image:components:dev',
-        [
-            'copy:resources:dev',
-            'copy:layouts:dev'
-        ],
+        'move:resources:dev',
         'clean:resources:dev',
         callback
     );
@@ -30,7 +28,8 @@ gulp.task('serve', function (callback) {
             'watch:hb',
             'watch:js',
             'watch:layouts',
-            'watch:image'
+            'watch:image',
+            'watch:sass'
         ],
         'build:dev',
         'connect',
@@ -51,7 +50,7 @@ gulp.task('build', function (callback) {
             'uglify:resources:dist'
         ],
         'image:components:dist',
-        'copy:resources:dist',
+        'move:resources:dist',
         'clean:resources:dist',
         callback
     );

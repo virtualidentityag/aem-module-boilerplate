@@ -9,9 +9,7 @@ const config = require('./../config');
 function moveRessources(baseDir) {
 
     const mergedStream = merge();
-    const modulePaths = globule.find([
-        baseDir + '/*'
-    ]);
+    const modulePaths = globule.find(baseDir + '/*');
 
     modulePaths.forEach((moduleDir) => {
         const stream = gulp.src(moduleDir + '/resources/**');
@@ -55,11 +53,11 @@ gulp.task('copy:layouts:dev', function () {
 
 
 // @TODO Remove old resources folders before copying
-gulp.task('copy:resources:dev', function () {
+gulp.task('move:resources:dev', function () {
     return moveRessources(config.devDir);
 });
 
-gulp.task('copy:resources:dist', function () {
+gulp.task('move:resources:dist', function () {
     return moveRessources(config.distDir);
 });
 
