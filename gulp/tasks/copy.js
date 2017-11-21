@@ -1,33 +1,16 @@
 const gulp = require('gulp');
-const globule = require('globule');
-const merge = require('merge-stream');
 const watch = require('gulp-watch');
 const runSequence = require('run-sequence');
 const config = require('./../config');
 
+const copyHelper = require('../lib/copy-helper');
 
 gulp.task('copy:js:dev', function () {
-    return gulp.src(config.srcDir + '/components/*/resources/js/**/*.js')
-        .pipe(gulp.dest(config.devDir));
+    return copyHelper.copyTask('js', config.devDir);
 });
 
 gulp.task('copy:layouts:dev', function () {
-    const mergedStream = merge();
-    const modulePaths = globule.find([ config.devDir + '/*' ]);
-    const stream = gulp.src(config.srcDir + '/layouts/resources/**');
-
-    modulePaths.forEach((moduleDir) => {
-        globule.find([
-            moduleDir + '/*',
-            '!' + moduleDir + '/resources'
-        ]).forEach((path) => {
-            stream.pipe(gulp.dest(path + '/layouts/resources/'));
-        });
-
-        mergedStream.add(stream)
-    });
-
-    return mergedStream;
+    return copyHelper.copyLayoutTask();
 });
 
 gulp.task('watch:js', function () {

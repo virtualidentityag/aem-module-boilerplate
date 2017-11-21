@@ -13,7 +13,7 @@ module.exports = {
         const componentNames = componentHelper.collectAllComponentNamesAsArray();
         const componentVariations = componentHelper.collectAllComponentVariations();
 
-        const streamComponent = (componentName) => {
+        componentNames.forEach((componentName) => {
             const stream = gulp.src([
                 `${config.srcDir}/components/${componentName}/resources/scss/**/*.scss`,
                 `!${config.srcDir}/components/${componentName}/resources/scss/**/_*.scss`
@@ -39,10 +39,6 @@ module.exports = {
             }
 
             mergedStream.add(stream);
-        };
-
-        componentNames.forEach((componentName) => {
-            streamComponent(componentName);
         });
 
         return mergedStream;

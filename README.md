@@ -1,3 +1,8 @@
+# TODO AEM Boilerplate 2
+
+* describe copy JS task - ignoreList for uglify
+
+
 # AEM Module Boilerplate Reloaded
 
 `gulp serve`
