@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "",
   "devDependencies": {
-    "aem-build-framework": "https://github.com/virtualidentityag/aem-module-boilerplate.git",
+    "aem-build-framework": "https://github.com/virtualidentityag/aem-module-boilerplate.git#1.0.0",
     "gulp": "3.9.1"
   },
   "repository": {
