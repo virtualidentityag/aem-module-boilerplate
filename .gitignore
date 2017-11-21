@@ -2,6 +2,7 @@ bower_components
 node_modules
 dist/*
 dev/*
+gulp/*
 npm-debug.log
 /src/resources/css/*main.css
 /.idea
