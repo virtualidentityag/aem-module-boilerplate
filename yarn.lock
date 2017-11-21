@@ -57,7 +57,7 @@ acorn@^5.0.3, acorn@^5.2.1:
 
 "aem-build-framework@https://github.com/virtualidentityag/aem-build-framework.git":
   version "1.0.0"
-  resolved "https://github.com/virtualidentityag/aem-build-framework.git#911d10303771c7cce46bff404f9b74ef385aeff0"
+  resolved "https://github.com/virtualidentityag/aem-build-framework.git#dd4eb8a9f65e30666affa10c3c33a070d5dbc457"
   dependencies:
     del "3.0.0"
     globule "1.2.0"
@@ -76,6 +76,7 @@ acorn@^5.0.3, acorn@^5.2.1:
     gulp-sourcemaps "2.6.1"
     gulp-uglify "3.0.0"
     gulp-watch "4.3.11"
+    lodash "^4.17.4"
     opn "5.1.0"
     os "^0.1.1"
     path "0.12.7"

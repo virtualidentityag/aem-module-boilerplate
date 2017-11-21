@@ -1,9 +1,10 @@
 {
   "name": "aem-module-boilerplate",
+  "title": "AEM Showroom",
   "version": "2.0.0",
   "description": "",
   "devDependencies": {
-    "aem-build-framework": "https://github.com/virtualidentityag/aem-module-boilerplate.git#1.0.0",
+    "aem-build-framework": "https://github.com/virtualidentityag/aem-build-framework.git",
     "gulp": "3.9.1"
   },
   "repository": {
