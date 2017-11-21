@@ -1,4 +1,6 @@
 const gulp = require('gulp');
+const watch = require('gulp-watch');
+const runSequence = require('run-sequence');
 const config = require('./../config');
 const sassHelper = require('../lib/sass-helper');
 

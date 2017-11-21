@@ -1,34 +1,21 @@
 const gulp = require('gulp');
+const watch = require('gulp-watch');
+const runSequence = require('run-sequence');
 const config = require('./../config');
-const image = require('gulp-imagemin');
-const imageOptimizers = [
-	image.gifsicle(),
-	image.jpegtran(),
-	image.optipng(),
-	image.svgo()
-];
+const imageHelper = require('../lib/image-helper');
 
-function minifyImages(destDir) {
-    return gulp.src(config.srcDir + '/components/*/resources/img/**')
-        .pipe(image(
-            imageOptimizers,
-            config.image
-        ))
-        .pipe(gulp.dest(destDir));
-}
-
-gulp.task('image:components:dev', function () {
-    return minifyImages(config.devDir);
+gulp.task('image:dev', function () {
+    return imageHelper.imageTask(config.devDir);
 });
 
-gulp.task('image:components:dist', function () {
-    return minifyImages(config.distDir);
+gulp.task('image:dist', function () {
+    return imageHelper.imageTask(config.distDir);
 });
 
 gulp.task('watch:image', function () {
     watch(config.srcDir + '/components/*/resources/img/**', config.watch, function () {
         runSequence(
-            ['image:components:dev']
+            ['image:dev']
         );
     });
 });

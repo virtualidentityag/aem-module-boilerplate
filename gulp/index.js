@@ -9,14 +9,12 @@ gulp.task('build:dev', function (callback) {
     runSequence(
         'clean:dev',
         [
-            'sass:dev',
             'hb',
+            'sass:dev',
             'copy:js:dev',
             'copy:layouts:dev',
-            'image:components:dev'
+            'image:dev'
         ],
-        'move:resources:dev',
-        'clean:resources:dev',
         callback
     );
 });
@@ -45,13 +43,12 @@ gulp.task('build', function (callback) {
     runSequence(
         'clean:dist',
         [
-            'sass:dist',
             'hb:dist',
-            'uglify:resources:dist'
+            'sass:dist',
+            'uglify:resources:dist',
+            'image:dist'
         ],
-        'image:components:dist',
-        'move:resources:dist',
-        'clean:resources:dist',
+
         callback
     );
 });
