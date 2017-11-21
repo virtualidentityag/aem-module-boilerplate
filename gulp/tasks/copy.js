@@ -9,6 +9,14 @@ gulp.task('copy:js:dev', function () {
     return copyHelper.copyTask('js', config.devDir);
 });
 
+gulp.task('copy:data:dev', function () {
+    return copyHelper.copyTask('data', config.devDir);
+});
+
+gulp.task('copy:data:dist', function () {
+    return copyHelper.copyTask('data', config.distDir);
+});
+
 gulp.task('copy:layouts:dev', function () {
     return copyHelper.copyLayoutTask();
 });

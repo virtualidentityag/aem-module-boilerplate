@@ -12,6 +12,7 @@ gulp.task('build:dev', function (callback) {
             'hb',
             'sass:dev',
             'copy:js:dev',
+            'copy:data:dev',
             'copy:layouts:dev',
             'image:dev'
         ],
@@ -45,6 +46,7 @@ gulp.task('build', function (callback) {
         [
             'hb:dist',
             'sass:dist',
+            'copy:data:dist',
             'uglify:resources:dist',
             'image:dist'
         ],
