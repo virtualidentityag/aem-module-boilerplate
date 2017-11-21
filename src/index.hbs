@@ -1,1 +1,90 @@
-INDEXR
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{package.title}} | {{package.version}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <style>
+        body {
+            min-height: 2000px;
+            padding: 70px 0;
+        }
+        .component__name {
+            text-transform: capitalize;
+            font-size: 24px;
+        }
+        .component__variation {
+            font-size: 18px;
+        }
+        p {
+            margin: 0;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">{{package.title}} {{package.version}}</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{package.title}} {{package.version}}</h3>
+        </div>
+        <div class="panel-body">
+            This AEM Component Framework is a framework to build encapsulated applications for the Adobe Experience Manager.
+            We hope to save you and your team hundreds of hours of work - Hours which you can invest in better content and maybe even into helping us improve this framework.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{#each components}}
+                <h3 class="component__name">{{name}}</h3>
+                <p class="component__variation">Variations:
+                {{#each variations}}
+                    <a href="{{../name}}/{{this}}/index.html">{{this}}</a>
+                    {{#unless @last}} | {{/unless}}
+                {{/each}}
+                </p>
+            {{/each}}
+
+        </div>
+    </div>
+
+</div> <!-- /container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script>
+    (function () {
+        'use strict';
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement('style');
+            msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
+            document.querySelector('head').appendChild(msViewportStyle);
+        }
+    })();
+</script>
+</body>
+</html>
