@@ -1,4 +1,6 @@
 (function() {
+    'use strict';
+
     var test = function(a) {
         return 'foo: ' + a;
     };
