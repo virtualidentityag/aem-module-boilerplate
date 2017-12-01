@@ -10,7 +10,7 @@
   "scripts": {
     "start": "npm run gulp serve",
     "gulp": "node node_modules/.bin/gulp"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/virtualidentityag/aem-module-boilerplate"
