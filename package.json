@@ -7,6 +7,10 @@
     "aem-build-framework": "https://github.com/virtualidentityag/aem-build-framework.git#1.0.0",
     "gulp": "3.9.1"
   },
+  "scripts": {
+    "start": "npm run gulp serve",
+    "gulp": "node node_modules/.bin/gulp"
+  }
   "repository": {
     "type": "git",
     "url": "https://github.com/virtualidentityag/aem-module-boilerplate"
