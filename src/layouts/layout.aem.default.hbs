@@ -1,0 +1,21 @@
+{{#unless isProduction}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layouts/resources/css/styles.css">
+</head>
+<body style="background: lightblue;">
+    <div class="aem-target-container">
+{{/unless}}
+
+        {{~> (lookup . 'content') ~}}
+
+{{#unless isProduction}}
+    </div>
+
+    <script src="layouts/resources/js/main.js"></script>
+</body>
+</html>
+{{/unless}}

@@ -1,6 +1,1 @@
-// get dependencies
-var gulp = require('gulp');
-var requireDir = require('require-dir');
-
-// require all gulp packages recursively
-requireDir('./gulp', { recurse: true });
+require('aem-build-framework');

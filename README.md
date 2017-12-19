@@ -1,3 +1,48 @@
+# TODO AEM Boilerplate 2
+
+* describe copy JS task - ignoreList for uglify
+
+
+# AEM Module Boilerplate Reloaded
+
+`gulp serve`
+
+* static:hb
+
+.src('src/components/*/variations/**/index.hbs')
+
+.partials('src/layouts/*.hbs')
+.partials('src/components/*/partials/**/*.hbs')
+
+* rename (remove: '/variations/')
+* rename (extname: '.html')
+
+.dest('.tmp/') => .tmp/aem-module-reloaded/(de|en)/index.html
+
+* sass (module/resources/scss/**/*.hbs)
+.registerPartials('_*.scss')
+.autoprefixer()
+
+* copy (['resources/js/**', 'resources/img/**', 'resources/data/**'])
+
+* indexr
+.collect('src/components/*/variations/**/index.hbs')
+
+* rename (remove: '/variations/')
+* rename (extname: '.html')
+
+.data( collection )
+.src (/index.hbs)
+
+
+`gulp build`
+
+* static:hb (siehe oben, aber mit "isProduction"=true)
+
+* useref (uglify)
+
+
+
 #AEM Module Boilerplate
 
 This boilerplate should help to create AEM modules from html, css and js files.
