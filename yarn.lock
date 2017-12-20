@@ -55,9 +55,9 @@ acorn@^5.0.3, acorn@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.2.1.tgz#317ac7821826c22c702d66189ab8359675f135d7"
 
-"aem-build-framework@https://github.com/virtualidentityag/aem-build-framework.git#1.0.0":
-  version "1.0.0"
-  resolved "https://github.com/virtualidentityag/aem-build-framework.git#dd4eb8a9f65e30666affa10c3c33a070d5dbc457"
+"aem-build-framework@https://github.com/virtualidentityag/aem-build-framework.git#1.0.1":
+  version "1.0.1"
+  resolved "https://github.com/virtualidentityag/aem-build-framework.git#afbd3d9be4721dacb609b38574c9110e1c2717c0"
   dependencies:
     del "3.0.0"
     globule "1.2.0"

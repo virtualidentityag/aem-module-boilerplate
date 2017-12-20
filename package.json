@@ -15,7 +15,7 @@
   "bugs": {},
   "dependencies": {},
   "devDependencies": {
-    "aem-build-framework": "https://github.com/virtualidentityag/aem-build-framework.git#1.0.0",
+    "aem-build-framework": "https://github.com/virtualidentityag/aem-build-framework.git#1.0.1",
     "gulp": "3.9.1"
   }
 }
