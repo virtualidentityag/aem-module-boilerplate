@@ -1,14 +1,11 @@
 {
   "name": "aem-module-boilerplate",
   "title": "AEM Showroom",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
-  "devDependencies": {
-    "aem-build-framework": "https://github.com/virtualidentityag/aem-build-framework.git#1.0.0",
-    "gulp": "3.9.1"
-  },
   "scripts": {
     "start": "npm run gulp serve",
+    "build": "npm run gulp build",
     "gulp": "node node_modules/.bin/gulp"
   },
   "repository": {
@@ -16,5 +13,9 @@
     "url": "https://github.com/virtualidentityag/aem-module-boilerplate"
   },
   "bugs": {},
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "aem-build-framework": "https://github.com/virtualidentityag/aem-build-framework.git#1.0.0",
+    "gulp": "3.9.1"
+  }
 }
